@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="file.css">
+
+    <style>
+
+        .appointment {
+            height: 100vh;
+            background-color: coral;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .appointment div {
+            background-color: white;
+            width: 45%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <span class="margin">hosOn</span>
+        <div class="right">
+            <a href="#home">Home</a>
+            <a href="#doctors">Doctors</a>
+            <a href="#appointment">Appointment</a>
+            <a href="#blog">Blog</a>
+            <a href="#events">Events</a>
+            <!-- <a href="#" onclick="myFunction()"><i class="material-icons">dark_mode</i></a> -->
+        </div>
+    </div>
+
+    <div class="navheight">
+        <div onclick="openNav()">&#9776;</div>
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#home">Home</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#appointment">Appointment</a>
+        <a href="#sblog">Blog</a>
+        <a href="#events">Events</a>
+    </div>
+
+    <div class="search">
+        <div>
+            <h1>Appointments</h1>
+        </div>
+        <div><input type="text"></div>
+    </div>
+
+    <div class="appointment">
+        <div>
+            <h1>appointment form</h1>
+            <label for="department">First name:</label><br>
+            <input list="department" name="department">
+            <datalist id="department">
+                <option value="Internet Explorer">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+            </datalist>
+        </div>
+        <div></div>
+    </div>
+
+
+
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "180px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+</body>
+
+
+</html>
