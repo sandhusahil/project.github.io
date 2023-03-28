@@ -10,18 +10,47 @@
     <link rel="stylesheet" href="file.css">
 
     <style>
-
         .appointment {
-            height: 100vh;
+            height: 200vh;
             background-color: coral;
             display: flex;
             justify-content: space-around;
         }
 
-        .appointment div {
-            background-color: white;
-            width: 45%;
+        .form {
+            background-color: rgb(247, 155, 155);
+            width: 65%;
         }
+
+        .detail {
+            width: 35%;
+            background-color: rgb(66, 46, 46);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            align-items: center;
+        }
+
+        input {
+            font-size: 20px;
+            width: 40%;
+            border: 0px solid;
+            padding: 10px;
+        }
+        input:focus {
+            outline: none;
+        }
+
+        textarea {
+            width: 60%;
+            padding: 10px;
+            font-size: 30px;
+            height: 200px;
+        }
+
     </style>
 </head>
 
@@ -58,9 +87,10 @@
     </div>
 
     <div class="appointment">
-        <div>
+        <div class="form">
             <h1>appointment form</h1>
-            <label for="department">First name:</label><br>
+            <form action="">
+                <label for="department">First name:</label><br>
             <input list="department" name="department">
             <datalist id="department">
                 <option value="Internet Explorer">
@@ -69,8 +99,29 @@
                 <option value="Opera">
                 <option value="Safari">
             </datalist>
+
+            <div>
+                <input type="text">
+            
+            <input type="text">
+            </div>
+
+            <input type="date" id="date" name="date">
+
+            <div>
+            <input type="radio">
+            <input type="radio">
+            </div>
+
+            <div>
+                <input type="text">
+                <input type="text">
+            </div>
+
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            </form>
         </div>
-        <div></div>
+        <div class="detail"></div>
     </div>
 
 
