@@ -12,13 +12,12 @@
     <style>
         .appointment {
             height: 200vh;
-            background-color: coral;
+            background-color: rgb(248, 236, 232);
             display: flex;
             justify-content: space-around;
         }
 
         .form {
-            background-color: rgb(247, 155, 155);
             width: 65%;
         }
 
@@ -36,10 +35,27 @@
 
         input {
             font-size: 20px;
-            width: 40%;
-            border: 0px solid;
+            width: 45%;
+            border: 1px solid rgb(73, 72, 72);
             padding: 10px;
         }
+
+        form input:nth-child(1) {
+            width: 45%;
+        }
+
+        form input:nth-child(2) {
+            width: 45%;
+        }
+
+        .datalist {
+            width: 58.5%;
+        }
+
+        #date {
+            width: 58.5%;
+        }
+
         input:focus {
             outline: none;
         }
@@ -51,6 +67,29 @@
             height: 200px;
         }
 
+        .gender {
+            font-size: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            height: 40px;
+            width: 85px;
+            color: black;
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+        }
+        .detail div {
+            background-color: blueviolet;
+            height: 40vh;
+            width: 80%;
+        }
     </style>
 </head>
 
@@ -88,40 +127,52 @@
 
     <div class="appointment">
         <div class="form">
-            <h1>appointment form</h1>
-            <form action="">
-                <label for="department">First name:</label><br>
-            <input list="department" name="department">
-            <datalist id="department">
-                <option value="Internet Explorer">
-                <option value="Firefox">
-                <option value="Chrome">
-                <option value="Opera">
-                <option value="Safari">
-            </datalist>
+            <h1>Appointment form</h1>
+            <form action=""><br><br><br><br>
+                <input class="datalist" list="department" name="department" placeholder="select department">
+                <datalist id="department">
+                    <option value="Internet Explorer">
+                    <option value="Firefox">
+                    <option value="Chrome">
+                    <option value="Opera">
+                    <option value="Safari">
+                </datalist>
 
-            <div>
-                <input type="text">
-            
-            <input type="text">
-            </div>
+                <div>
+                    <input type="text" placeholder="your first name">
 
-            <input type="date" id="date" name="date">
+                    <input type="text" placeholder="your last name">
+                </div>
 
-            <div>
-            <input type="radio">
-            <input type="radio">
-            </div>
+                <input type="date" id="date" name="date">
 
-            <div>
-                <input type="text">
-                <input type="text">
-            </div>
+                <div class="gender">
+                    <h2>Gender:</h2>
+                    <label for="">male:</label>
+                    <input type="radio">
 
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <label for="">female:</label>
+                    <input type="radio">
+
+                    <label for="">child:</label>
+                    <input type="radio">
+                </div>
+
+                <div>
+                    <input type="text" placeholder="your email">
+                    <input type="text" placeholder="your phone">
+                </div>
+
+                <textarea name="" id="" placeholder="your message" cols="30" rows="10"></textarea>
+                <button type="submit">
+                    <h2>Submit</h2>
+                </button>
             </form>
         </div>
-        <div class="detail"></div>
+        <div class="detail">
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
 
