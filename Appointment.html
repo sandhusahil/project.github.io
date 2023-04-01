@@ -18,11 +18,11 @@
         }
 
         .form {
-            width: 65%;
+            width: 70%;
         }
 
         .detail {
-            width: 35%;
+            width: 30%;
             background-color: rgb(66, 46, 46);
         }
 
@@ -85,10 +85,29 @@
             align-items: center;
             gap: 100px;
         }
-        .detail div {
+        .booking {
             background-color: blueviolet;
             height: 40vh;
-            width: 80%;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .booking div {
+            height: 40px;
+            width: 100%;
+            background-color: rgb(98, 202, 116);
+        }
+        .booking div:nth-child(1) {
+            height: 100px;
+        }
+
+        .after-booking {
+            background-color: blue;
+            height: 60vh;
+            width: 90%;
         }
     </style>
 </head>
@@ -170,8 +189,27 @@
             </form>
         </div>
         <div class="detail">
-            <div></div>
-            <div></div>
+            <div class="booking">
+                <div>
+                    <h3>Book an appointment</h3><br>
+                    <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+                </div>
+                <div><h3>Phone: +919876543210</h3></div>
+                <div><h3>email: abc@gmail.com</h3></div>
+                <div>online form: fill out this form</div>
+            </div>
+            <div class="after-booking">
+                <h3>After booking</h3><br>
+                <h5>Lorem ipsum dolor sit amet consectetur.</h5><br>
+                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
+                <ul>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
