@@ -15,28 +15,38 @@
         }
 
         div {
-            height: 400px;
-            width: 40%;
-            background-color: gray;
+            height: 500px;
+            width: 50%;
+            border: 1px solid black;
             border-radius: 20px;
         }
 
         h1 {
             text-align: center;
             font-size: 35px;
-            color: aliceblue;
         }
 
         form {
             display: flex;
             flex-direction: column;
             padding: 20px;
+            align-items: center;
+        }
+
+        form div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: none;
+            height: 110px;
+            width: 70%;
+            gap: 10px;
         }
 
         input {
             font-size: 20px;
-            margin: 10px;
             padding: 10px;
+            width: 90%;
         }
 
         button {
@@ -52,11 +62,68 @@
     <div>
         <h1>Sign up</h1>
         <form action="">
-            <input type="text" name="" id="" placeholder="Enter your email">
-            <input type="text" name="" id="" placeholder="Enter your password">
-            <button type="submit">Sign up</button>
+            <div>
+                <label for="">Username</label>
+                <input type="text" name="" id="email" placeholder="Enter your email or phone no.">
+            </div>
+
+            <div>
+                <label for="">Password:</label>
+                <input type="password" name="" id="password" placeholder="Enter your password">
+
+            </div>
+
+            <div>
+                <label for="">Confirm Password:</label>
+                <input type="password" name="" id="" placeholder="Enter your password">
+            </div>
+            <button type="submit" id="submit">Sign up</button>
         </form>
     </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDBVWU-R5c9Wm-KTXqBZiuhFjysAakS5lM",
+          authDomain: "newproject-51592.firebaseapp.com",
+          projectId: "newproject-51592",
+          storageBucket: "newproject-51592.appspot.com",
+          messagingSenderId: "434519780929",
+          appId: "1:434519780929:web:b78b9fdabd13df176520c0",
+          measurementId: "G-FZG7PEKEH3"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+
+        let username = document.getElementById("email");
+        let password = document.getElementById("password");
+
+
+document.getElementById("submit").addEventListener("click", function(event){
+  event.preventDefault();
+
+  set(ref(db, 'users/'), {
+    username: username.value,
+    password: password.value
+  });
+});
+
+      </script>
+
+        
+
 </body>
 
 </html>

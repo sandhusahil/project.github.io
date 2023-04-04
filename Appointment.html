@@ -11,8 +11,9 @@
 
     <style>
         .appointment {
+            margin-top: 60px;
             height: 200vh;
-            background-color: rgb(248, 236, 232);
+            background-color: white;
             display: flex;
             justify-content: space-around;
         }
@@ -23,14 +24,15 @@
 
         .detail {
             width: 30%;
-            background-color: rgb(66, 46, 46);
+            background-color: white;
         }
 
         form {
-            display: flex;
+            display: grid;
             flex-direction: column;
             row-gap: 30px;
             align-items: center;
+            justify-content: center;
         }
 
         input {
@@ -49,11 +51,11 @@
         }
 
         .datalist {
-            width: 58.5%;
+            width: 45%;
         }
 
         #date {
-            width: 58.5%;
+            width: 45%;
         }
 
         input:focus {
@@ -61,7 +63,7 @@
         }
 
         textarea {
-            width: 60%;
+            width: 96%;
             padding: 10px;
             font-size: 30px;
             height: 200px;
@@ -86,7 +88,7 @@
             gap: 100px;
         }
         .booking {
-            background-color: blueviolet;
+            background-color: white;
             height: 40vh;
             width: 90%;
             display: flex;
@@ -96,16 +98,22 @@
         }
 
         .booking div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             height: 40px;
             width: 100%;
-            background-color: rgb(98, 202, 116);
+            background-color: lightgray;
+            border: 1px solid black;
         }
         .booking div:nth-child(1) {
             height: 100px;
+            border: none;
+            background-color: white;
         }
 
         .after-booking {
-            background-color: blue;
+            background-color: white;
             height: 60vh;
             width: 90%;
         }
@@ -138,10 +146,7 @@
     </div>
 
     <div class="search">
-        <div>
-            <h1>Appointments</h1>
-        </div>
-        <div><input type="text"></div>
+    
     </div>
 
     <div class="appointment">

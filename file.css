@@ -35,8 +35,10 @@ body {
 
 .header .right a {
     text-decoration: none;
-    color: black;
-
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .header .right a:hover {
@@ -48,7 +50,7 @@ body {
 }
 
 .search {
-    height: 200px;
+    height: 100px;
     background-color: aquamarine;
     display: flex;
     justify-content: space-around;
@@ -59,9 +61,9 @@ body {
     margin-top: 100px;
 }
 
-.navheight, .sidebar {
+/* .navheight, .sidebar {
     display: none;
-}
+} */
 
 @media (max-width:700px) {
     .header {
@@ -78,9 +80,12 @@ body {
     }
 
     .navheight div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: aliceblue;
-        font-size: 50px;
-        width: fit-content;
+        font-size: 35px;
+        width: 10%;
     }
 
     .sidebar {
