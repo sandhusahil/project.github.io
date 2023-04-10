@@ -87,6 +87,7 @@
             align-items: center;
             gap: 100px;
         }
+
         .booking {
             background-color: white;
             height: 40vh;
@@ -106,6 +107,7 @@
             background-color: lightgray;
             border: 1px solid black;
         }
+
         .booking div:nth-child(1) {
             height: 100px;
             border: none;
@@ -146,14 +148,15 @@
     </div>
 
     <div class="search">
-    
+
     </div>
 
     <div class="appointment">
         <div class="form">
             <h1>Appointment form</h1>
             <form action=""><br><br><br><br>
-                <input class="datalist" list="department" name="department" placeholder="select department">
+                <input class="datalist" list="department" name="department" id="departmentmain"
+                    placeholder="select department">
                 <datalist id="department">
                     <option value="Internet Explorer">
                     <option value="Firefox">
@@ -163,9 +166,9 @@
                 </datalist>
 
                 <div>
-                    <input type="text" placeholder="your first name">
+                    <input type="text" id="firstname" placeholder="your first name">
 
-                    <input type="text" placeholder="your last name">
+                    <input type="text" id="lastname" placeholder="your last name">
                 </div>
 
                 <input type="date" id="date" name="date">
@@ -183,12 +186,12 @@
                 </div>
 
                 <div>
-                    <input type="text" placeholder="your email">
-                    <input type="text" placeholder="your phone">
+                    <input type="text" id="youremail" placeholder="your email">
+                    <input type="text" id="yourphone" placeholder="your phone">
                 </div>
 
-                <textarea name="" id="" placeholder="your message" cols="30" rows="10"></textarea>
-                <button type="submit">
+                <textarea name="" id="message" placeholder="your message" cols="30" rows="10"></textarea>
+                <button type="submit" id="submit">
                     <h2>Submit</h2>
                 </button>
             </form>
@@ -199,8 +202,12 @@
                     <h3>Book an appointment</h3><br>
                     <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
                 </div>
-                <div><h3>Phone: +919876543210</h3></div>
-                <div><h3>email: abc@gmail.com</h3></div>
+                <div>
+                    <h3>Phone: +919876543210</h3>
+                </div>
+                <div>
+                    <h3>email: abc@gmail.com</h3>
+                </div>
                 <div>online form: fill out this form</div>
             </div>
             <div class="after-booking">
@@ -218,7 +225,73 @@
         </div>
     </div>
 
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCcq-BIHHgvuw7lO6yRDVNbg5nDu1mHHU8",
+            authDomain: "great-cd640.firebaseapp.com",
+            projectId: "great-cd640",
+            storageBucket: "great-cd640.appspot.com",
+            messagingSenderId: "1066977883265",
+            appId: "1:1066977883265:web:06760324d4159c891dc980",
+            measurementId: "G-FY9ELWPCDC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase(app);
+
+        var ids;
+
+        const starCountRef = ref(db)
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            console.log(data);
+            var id = parseInt(Object.keys(data.users).pop());
+            console.log(id);
+            ids = id + 1;
+            console.log(ids);
+            
+        });
+
+
+        document.getElementById("submit").addEventListener("click", function (event) {
+            event.preventDefault();
+
+            let department = document.getElementById("departmentmain").value;
+            let firstname = document.getElementById("firstname").value;
+            let lastname = document.getElementById("lastname").value;
+            let date = document.getElementById("date").value;
+            let youremail = document.getElementById("youremail").value;
+            let yourphone = document.getElementById("yourphone").value;
+            let message = document.getElementById("message").value;
+
+            function writeUserData() {
+                
+                set(ref(db, 'users/' + ids), {
+                    id: ids,
+                    department: department,
+                    firstname: firstname,
+                    lastname: lastname,
+                    // date: date,
+                    youremail: youremail,
+                    yourphone: yourphone,
+                    message: message
+                });
+            }
+            writeUserData();
+
+        });
+    </script>
 
 
 

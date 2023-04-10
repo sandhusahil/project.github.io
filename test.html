@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div {
+    height: 60vh;
+    width: 50%;
+    border: 1px solid rgb(124, 123, 123);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap:0px;
+    margin: 30px;
+  }
+
+  h1 {
+    margin: 6px;
+    border-bottom: 1px solid black;
+  }
+</style>
+
+<body>
+
+  <!-- <div>
+    <h1>style</h1>
+    <h1>style</h1>
+    <h1>style</h1>
+    <h1>style</h1>
+  </div> -->
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCcq-BIHHgvuw7lO6yRDVNbg5nDu1mHHU8",
+      authDomain: "great-cd640.firebaseapp.com",
+      projectId: "great-cd640",
+      storageBucket: "great-cd640.appspot.com",
+      messagingSenderId: "1066977883265",
+      appId: "1:1066977883265:web:06760324d4159c891dc980",
+      measurementId: "G-FY9ELWPCDC"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase();
+
+
+    const starCountRef = ref(db)
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+
+      function create() {
+        for (let a in data.users) {
+          console.log( data.users[a]);
+
+          let section = document.createElement("div");
+        let heading = document.createElement("h1");
+        let heading1 = document.createElement("h1");
+        let heading2 = document.createElement("h1");
+        let heading3 = document.createElement("h1");
+        let heading4 = document.createElement("h1");
+        let heading5 = document.createElement("h1");
+        let heading6 = document.createElement("h1");
+
+        heading.innerHTML = "id :" + " " + data.users[a].id;
+        heading1.innerHTML = "department :" + " " + data.users[a].department;
+        heading2.innerHTML = "firstname :" + " " + data.users[a].firstname;
+        heading3.innerHTML = "lastname :" + " " + data.users[a].lastname;
+        heading4.innerHTML = "email :" + " " + data.users[a].youremail;
+        heading5.innerHTML = "phone no. :" + " " + data.users[a].yourphone;
+        heading6.innerHTML = "message :" + " " + data.users[a].message;
+
+        document.body.appendChild(section);
+        section.appendChild(heading);
+        section.appendChild(heading1);
+        section.appendChild(heading2);
+        section.appendChild(heading3);
+        section.appendChild(heading4);
+        section.appendChild(heading5);
+        section.appendChild(heading6);
+        }
+        
+        
+
+        
+      }
+
+      create();
+
+      
+
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>
